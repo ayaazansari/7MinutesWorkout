@@ -1,5 +1,6 @@
 package com.example.a7minutesworkout
 
+import android.app.Dialog
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
@@ -9,8 +10,9 @@ import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a7minutesworkout.databinding.ActivityExerciseBinding
-import java.lang.Exception
+import com.example.a7minutesworkout.databinding.DialogCustomBackConfirmationBinding
 import java.util.*
 
 class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
@@ -23,51 +25,54 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private var binding: ActivityExerciseBinding? = null
 
-    private var exerciseList: ArrayList<ExerciseModel> = Constants.defaultExerciseList()
+    private var exerciseList: ArrayList<ExerciseModel>? = null
     var i = 0
 
-    private var player:MediaPlayer?=null
+    private var player: MediaPlayer? = null
+
+    private var exerciseAdapter: ExerciseStatusAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityExerciseBinding.inflate(layoutInflater)
         setContentView(binding?.root)
         setupActionBar()
+
         tts = TextToSpeech(this, this)
 
+        exerciseList = Constants.defaultExerciseList()
 
-        binding?.leftArrow?.setOnClickListener{
-            i--
-            Log.e("Ayaaz","left clicked")
-            exerciseScreen()
-        }
-        binding?.rightArrow?.setOnClickListener {
-            i++
-            Log.e("Ayaaz","Right clicked")
-            exerciseScreen()
-        }
         startTimer()
+        setUpExerciseStatusRecyclerView()
     }
 
+    private fun setUpExerciseStatusRecyclerView() {
+        binding?.rvExerciseStatus?.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        exerciseAdapter = ExerciseStatusAdapter(exerciseList!!)
+        binding?.rvExerciseStatus?.adapter = exerciseAdapter
+    }
 
     private fun startTimer() {
         showLoadingScreen()
-        try{
+        try {
             val soundURI = Uri.parse(
-                "android.resource://com.example.a7minutesworkout/"+R.raw.press_start)
-            player = MediaPlayer.create(applicationContext,soundURI)
+                "android.resource://com.example.a7minutesworkout/" + R.raw.press_start
+            )
+            player = MediaPlayer.create(applicationContext, soundURI)
             player?.isLooping = false
             player?.start()
-        }catch (e:Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
-        if (i >10) {
-            startActivity(Intent(this,MainActivity::class.java))
+        if (i > 10) {
+            finish()
+            startActivity(Intent(this, FinishActivity::class.java))
         } else {
-            val exercise = exerciseList[i].getName()
+            val exercise = exerciseList?.get(i)?.getName()
             binding?.upComingExercise?.text = "Upcoming Exercise\n${exercise}"
             Log.e("Ayaaz", "$i")
-            restTimer = object : CountDownTimer(5000, 1000) {
+            restTimer = object : CountDownTimer(10000, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     binding?.progressBar?.progress =
                         Integer.parseInt((millisUntilFinished / 1000).toString())
@@ -75,6 +80,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 }
 
                 override fun onFinish() {
+                    exerciseList!![i].setIsSelected(true)
+                    exerciseAdapter!!.notifyDataSetChanged()
                     restTimer = null
                     exerciseScreen()
                 }
@@ -85,7 +92,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private fun exerciseScreen() {
         Log.e("Ayaaz2", "$i")
-        val exercise = exerciseList[i]
+        val exercise = exerciseList!![i]
         speakOut(exercise.getName())
         val exerciseName = exercise.getName()
         val exerciseImage = exercise.getImage()
@@ -101,8 +108,6 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.tvGetReady?.visibility = View.GONE
         binding?.ivExercise?.visibility = View.VISIBLE
         binding?.tvExercise?.visibility = View.VISIBLE
-        binding?.leftArrow?.visibility = View.VISIBLE
-        binding?.rightArrow?.visibility = View.VISIBLE
     }
 
     private fun showLoadingScreen() {
@@ -112,13 +117,11 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.tvGetReady?.visibility = View.VISIBLE
         binding?.ivExercise?.visibility = View.GONE
         binding?.tvExercise?.visibility = View.GONE
-        binding?.leftArrow?.visibility = View.GONE
-        binding?.rightArrow?.visibility = View.GONE
     }
 
     private fun startTimer30() {
         showExerciseScreen()
-        restTimer30 = object : CountDownTimer(5000, 1000) {
+        restTimer30 = object : CountDownTimer(30000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 binding?.progressBar30?.progress =
                     Integer.parseInt((millisUntilFinished / 1000).toString())
@@ -126,6 +129,11 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
 
             override fun onFinish() {
+
+                exerciseList!![i].setIsSelected(false)
+                exerciseList!![i].setIsCompleted(true)
+                exerciseAdapter!!.notifyDataSetChanged()
+
                 i++
                 startTimer()
                 restTimer30 = null
@@ -140,9 +148,12 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             actionBar.setDisplayHomeAsUpEnabled(true)
             actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back)
         }
-        binding?.toolbar?.setNavigationOnClickListener { onBackPressed() }
+        binding?.toolbar?.setNavigationOnClickListener { backConfirmation() }
     }
 
+    override fun onBackPressed() {
+        backConfirmation()
+    }
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
@@ -174,5 +185,20 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             tts?.stop()
             tts?.shutdown()
         }
+    }
+
+    private fun backConfirmation(){
+        val confirmationDialog = Dialog(this,R.style.Theme_Dialog)
+        confirmationDialog.setCancelable(false)
+        val binding = DialogCustomBackConfirmationBinding.inflate(layoutInflater)
+        confirmationDialog.setContentView(binding.root)
+
+        binding?.btnYes?.setOnClickListener {
+            finish()
+        }
+        binding?.btnNo?.setOnClickListener {
+            confirmationDialog?.dismiss()
+        }
+        confirmationDialog?.show()
     }
 }

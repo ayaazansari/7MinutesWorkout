@@ -11,70 +11,70 @@ object Constants {
             false
         )
         val model2 = ExerciseModel(
-            1,
+            2,
             "High Knees",
             R.drawable.ic_high_knees_running_in_place,
             false,
             false
         )
         val model3 = ExerciseModel(
-            1,
+            3,
             "Lunge",
             R.drawable.ic_lunge,
             false,
             false
         )
         val model4 = ExerciseModel(
-            1,
+            4,
             "Plank",
             R.drawable.ic_plank,
             false,
             false
         )
         val model5 = ExerciseModel(
-            1,
+            5,
             "Push up",
             R.drawable.ic_push_up,
             false,
             false
         )
         val model6 = ExerciseModel(
-            1,
+            6,
             "Push up and rotation",
             R.drawable.ic_push_up_and_rotation,
             false,
             false
         )
         val model7 = ExerciseModel(
-            1,
+            7,
             "Side Plank",
             R.drawable.ic_side_plank,
             false,
             false
         )
         val model8 = ExerciseModel(
-            1,
+            8,
             "Squat",
             R.drawable.ic_squat,
             false,
             false
         )
         val model9 = ExerciseModel(
-            1,
+            9,
             "step up onto chair",
             R.drawable.ic_step_up_onto_chair,
             false,
             false
         )
         val model10 = ExerciseModel(
-            1,
+            10,
             "triceps dips on chair",
             R.drawable.ic_triceps_dip_on_chair,
             false,
             false
         )
         val model11 = ExerciseModel(
-            1,
+            11,
             "wall sit",
             R.drawable.ic_wall_sit,
             false,

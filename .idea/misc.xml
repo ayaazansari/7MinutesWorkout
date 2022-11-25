@@ -4,15 +4,34 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/button_background.xml" value="0.268" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/button_background_bmi.xml" value="0.193" />
         <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/circular_progress_bar.xml" value="0.238" />
         <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/circular_progress_gray.xml" value="0.238" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/drawable_radio_group_tab_background.xml" value="0.239" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/drawable_units_tab_selector.xml" value="0.17" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/drawable_units_tab_selector_demo.xml" value="0.199" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/drawable_units_tab_text_color_selector.xml" value="0.17" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/drawable_units_tab_text_color_selector_demo.xml" value="0.1745" />
         <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/fl_background.xml" value="0.238" />
         <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/ic_back_arrow.xml" value="0.1" />
         <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/ic_black_color_back.xml" value="0.1" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/ic_calendar.xml" value="0.204" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/ic_tick.xml" value="0.185" />
         <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/item_circular_color_accent_background.xml" value="0.238" />
-        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/layout/activity_exercise.xml" value="0.25" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/item_circular_color_grey_background.xml" value="0.103" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/item_circular_thin_color_accent_border.xml" value="0.1" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/radio_group_background.xml" value="0.219" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/drawable/tick_background.xml" value="0.18" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/layout/activity_bmi.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/layout/activity_exercise.xml" value="0.33" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/layout/activity_finish.xml" value="0.25" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/layout/activity_history.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/layout/activity_second.xml" value="0.32019927536231885" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/layout/dialog_custom_back_confirmation.xml" value="0.33" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/layout/drawable_radio_group_tab_background.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/layout/item_exercise_status.xml" value="0.5" />
+        <entry key="..\:/Users/Ayaaz/AndroidStudioProjects/7MinutesWorkout/app/src/main/res/layout/item_row.xml" value="0.365625" />
       </map>
     </option>
   </component>

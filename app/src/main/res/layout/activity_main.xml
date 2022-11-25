@@ -21,11 +21,12 @@
         android:id="@+id/llbutton"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="72dp"
         android:background="@drawable/button_background"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image">
 
@@ -40,6 +41,77 @@
 
 
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/btnBMI"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/button_background_bmi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llbutton"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="BMI"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Calculator"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnBMI"
+        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintStart_toStartOf="@+id/btnBMI"
+        app:layout_constraintTop_toBottomOf="@+id/btnBMI" />
+
+    <FrameLayout
+        android:id="@+id/llHistory"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/item_circular_color_accent_background"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.564"
+        app:layout_constraintStart_toEndOf="@+id/btnBMI"
+        app:layout_constraintTop_toBottomOf="@+id/llbutton">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_calendar" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="History"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/llHistory"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/llHistory"
+        app:layout_constraintTop_toBottomOf="@+id/llHistory" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
